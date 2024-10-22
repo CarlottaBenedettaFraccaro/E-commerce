@@ -2,14 +2,12 @@ import express from "express";
 
 import {
   homeController,
-  usersController,
-  productsCotroller,
+  useriosController,
+  productosCotroller,
 } from "./src/controllers/controladores.js";
-//creamos una instancia de express
+
 const server = express();
 
-//middleware de aplicación
-//son funciones que se aplican a todas las rutas
 server.use((req, res, next) => {
   console.log("Solicitud recibida " + new Date());
 
@@ -17,8 +15,8 @@ server.use((req, res, next) => {
 });
 
 server.get("/", homeController);
-server.get("/users", usersController);
-server.get("/products", productsCotroller);
+server.get("/usuarios", useriosController);
+server.get("/productos", productosCotroller);
 
 //server.post --> crea un nuevo recurso
 //server.put --> modifica un recurso ya creado
