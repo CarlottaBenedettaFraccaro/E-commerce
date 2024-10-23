@@ -5,3 +5,4 @@ Adjunto esquema relacional
 Creación de proyecto de Node
 Creación del servidor con Express, hay que introducir los datos específicos de cada uno, para conectar el proyecto con la DB
 Creación de la conexión con la base de datos desde Node
+Solucionado con éxito el conflicto entre .env y .gitignore
