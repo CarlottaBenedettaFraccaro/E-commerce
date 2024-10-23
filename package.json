@@ -10,12 +10,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Proyecto de final de bootcamp Hack A Boss 2024 - E-commerce\r Se ha creado una DB con MySQL Workbrench, con las tablas necesarias y las coneciones mediante PK y FK\r Adjunto esquema relacional\r Creación de proyecto de Node\r Creación del servidor con Express\r Creación de la conexión con la base de datos desde Node",
   "dependencies": {
     "-": "^0.0.1",
+    "cors": "^2.8.5",
     "D": "^1.0.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "mysql": "^2.18.1",
     "mysql2": "^3.11.3"
   },
   "devDependencies": {
