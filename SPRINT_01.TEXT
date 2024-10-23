@@ -1,0 +1,35 @@
+SPRINT I
+Análisis
+● Wireframe ✅
+Backend
+● Creación de la base de datos con datos fijos (categorías y usuario
+administrator) ✅
+● Creación de proyecto de Node y estructura inicial de carpetas ✅
+● Creación del servidor con Express ✅
+● Creación de la conexión con la base de datos desde Node ✅
+● Middleware 404 not found
+● Middleware gestión de errores
+● Middleware parseo del body de la petición
+● Middleware upload de files
+● Middleware definición directorio recursos estáticos (imágenes)
+● Middleware: cors
+● Endpoint registro de usuarios
+● Endpoint validación usuario
+● Endpoint login de usuarios
+● Endpoint recuperación contraseña
+● Endpoint cambio contraseña
+● Middleware verificación de autenticación de usuarios
+● Endpoint lista categorías
+● Endpoint creación de un producto (solo administrator)
+● Endpoint añadir producto al carrito
+● Endpoint para eliminar un producto del carrito
+● Endpoint para modificar la cantidad de un producto en el carrito
+● Endpoint lista productos con filtro/búsqueda y ordenación.
+● Endpoint detalle producto
+● Endpoint lista productos en el carrito
+● Colección de Postman con los endpoints implementados
+● Creación de una breve documentación en un fichero README.md.
+Esta documentación debe incluir al menos una breve descripción de
+la app y los pasos para arrancar el backend
+Notas
+- Validar el body de la petición con Joi en todos los endpoints.
