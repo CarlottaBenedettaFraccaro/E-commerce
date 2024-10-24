@@ -7,3 +7,4 @@ Creación del servidor con Express, hay que introducir los datos específicos de
 Creación de la conexión con la base de datos desde Node
 Solucionado con éxito el conflicto entre .env y .gitignore
 He creado una branch para subir los endpoint de : registro usuario, validación de usuario, login y recuperación de contraseña.
+Branch de EndpointsCarrito, con los archivos js para controllers y routes correspondientes, y la edición del server.js con el import cartRoutes, y la linea 26 para la ruta con la API.
