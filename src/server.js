@@ -1,6 +1,7 @@
 import express from "express";
 import fileupload from "express-fileupload";
 import cors from "cors";
+import cartRoutes from "./routes/cartRoutes.js";
 
 const server = express();
 
@@ -20,6 +21,9 @@ server.use(fileupload());
 //para pedir el envío de una imagen o cualquier archivo estático
 const staticDir = path.join(process.cwd(), "./src/uploads");
 server.use("/uploads", express.static(staticDir)); // CUIDADO!
+
+// Rutas específicas para la API
+server.use("/Ecommerce/cartRoutes", cartRoutes);
 
 server.get("/", homeController); // ¿?
 server.get("/usuarios", useriosController); // ¿?
@@ -45,4 +49,10 @@ server.use((req, res) => {
     status: "error",
     message: "Not Found",
   });
+});
+
+const PORT = "?"; //hay que cambiar la ? por el puertocorrespondiente
+
+server.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
