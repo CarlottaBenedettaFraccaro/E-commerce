@@ -7,3 +7,5 @@ Creación del servidor con Express, hay que introducir los datos específicos de
 Creación de la conexión con la base de datos desde Node
 Solucionado con éxito el conflicto entre .env y .gitignore
 He creado una branch para subir los endpoint de : registro usuario, validación de usuario, login y recuperación de contraseña.
+Creadas rutas de usuario y el autenticador de usuario
+Creadas servicios de usuario por ID y EMAIL
