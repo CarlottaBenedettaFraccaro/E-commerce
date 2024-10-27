@@ -6,8 +6,8 @@ CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50),
     surname VARCHAR(50),
-	-- telephone_prefix_id INT DEFAULT SELECT (id FROM telephone_prefix WHERE prefix = '+34'), dejo comentado todo lo del prefijo porque es muy complicdo. 
-    -- FOREIGN KEY (telephone_prefix_id) REFERENCES telephone_prefix(id)
+	telephone_prefix_id INT NULL, 
+    FOREIGN KEY (telephone_prefix_id) REFERENCES telephone_prefix(id),
     telephone CHAR(9) NOT NULL,
     CHECK (telephone REGEXP '^[0-9]{9}$'),
     email VARCHAR(50),
@@ -21,11 +21,11 @@ CREATE TABLE users (
 
 );
 
--- CREATE TABLE telephone_prefix (
-   -- id INT PRIMARY KEY AUTO_INCREMENT,
-   -- prefix VARCHAR(5) NOT NULL
+CREATE TABLE telephone_prefix (
+   id INT PRIMARY KEY AUTO_INCREMENT,
+   prefix VARCHAR(5) NOT NULL
 
--- );
+);
 
 CREATE TABLE direction (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -45,7 +45,7 @@ CREATE TABLE products (
     outstanding BOOLEAN DEFAULT TRUE,
     desactivated BOOLEAN DEFAULT FALSE,
     product_name VARCHAR(50) NOT NULL,
-    product_description VARCHAR(50) NOT NULL
+    product_description VARCHAR(500) NOT NULL
 
 );
 
