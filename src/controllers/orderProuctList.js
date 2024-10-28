@@ -1,9 +1,9 @@
 import orderController from "../controllers/orderController.js";
-import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
+import generateErrorsUtils from "../utils/generateErrorsUtils.js";
 
 const orderViewFinalController = async (req, res, next) => {
   try {
-    const { userId } = req.params;
+    const { userId } = req.user;
 
     // Verificar que el usuario tenga permisos para ver su propio carrito
     /*if (userId != req.user.id) {
@@ -52,18 +52,3 @@ const orderViewFinalController = async (req, res, next) => {
 };
 
 export default orderViewFinalController;
-
-const editUserPasswordController = async (req, res, next) => {
-  try {
-    const { email, recoverPassCode, newPassword } = req.body;
-
-    await updateUserPasswordService(email, recoverPassCode, newPassword);
-
-    res.send({
-      status: "ok",
-      message: "Contraseña actualizada",
-    });
-  } catch (error) {
-    next(error);
-  }
-};
