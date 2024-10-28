@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import getPool from "../../database/getPool.js";
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
-import sendMailUtils from '../../utils/sendMailUtils.js';
+//import sendMailUtils from '../../utils/sendMailUtils.js';
 import sendMailBrevoUtils from '../../utils/sendMailBrevoUtils.js';
 
 const insertUserServices = async (email, password, registrationCode) => {
@@ -35,7 +35,7 @@ const insertUserServices = async (email, password, registrationCode) => {
                         <p>
                             <a href="http://localhost:3001/users/validate/${registrationCode}">Activar Cuenta</a>
                         
-                            Hecho con ❤ por el equipo de Ecommerce Aceites.
+                            Hecho con ❤ por el equipo de Ecoil.
                         </p>
                     </body>
                 </html>

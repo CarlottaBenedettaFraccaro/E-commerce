@@ -28,7 +28,7 @@ const updateRecoverPassService = async (email, recoverPassCode) => {
                         <p>
                             Si no ha sido usted, ignore este email
                         
-                            Hecho con ❤ por el equipo de ecommerce Aceites.
+                            Hecho con ❤ por el equipo de Ecoil.
                         </p>
                     </body>
                 </html>
