@@ -16,6 +16,7 @@ server.use((req, res, next) => {
 server.use(morgan("dev"));
 
 server.use(express.json()); //codifica todo lo que viene desde un formulario y viene por body
+
 server.use(cors());
 
 //implementar el middleware para subir archivos
@@ -24,7 +25,9 @@ server.use(fileupload());
 //implementar una ruta estática para ser usada desde el front
 //para pedir el envío de una imagen o cualquier archivo estático
 const staticDir = path.join(process.cwd(), "./src/uploads");
-server.use("/uploads", express.static(staticDir)); // CUIDADO!
+server.use("/uploads", express.static(staticDir));
+
+// Hacer que cree la carpeta al arrancar el servidor.
 
 //server.post --> crea un nuevo recurso
 //server.put --> modifica un recurso ya creado
