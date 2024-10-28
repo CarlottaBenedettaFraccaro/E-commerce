@@ -26,7 +26,7 @@ CREATE TABLE users (
     telephone CHAR(9) NOT NULL,
     direction_id INT,
     email VARCHAR(50),
-    password VARCHAR(20), -- Eliminado el CHECK, usa validación en la app
+    password VARCHAR(20) NOT NULL CHECK (CHAR_LENGTH(password) BETWEEN 8 AND 20),
     role ENUM('admin', 'client'),
     active BOOLEAN DEFAULT FALSE,
     registrationcode VARCHAR(50),

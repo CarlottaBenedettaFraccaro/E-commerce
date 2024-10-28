@@ -1,7 +1,7 @@
-import cartController from "../controllers/cartController.js";
+import orderController from "../controllers/orderController.js";
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
-const cartViewFinalController = async (req, res, next) => {
+const orderViewFinalController = async (req, res, next) => {
   try {
     const { userId } = req.params;
 
@@ -14,7 +14,7 @@ const cartViewFinalController = async (req, res, next) => {
     }*/
 
     // Obtener el carrito del usuario
-    const cart = await cartController.getCartByUserId(userId);
+    const cart = await orderController.getOrderByUserId(userId);
 
     if (!cart || cart.items.length === 0) {
       return res.status(404).json({
@@ -51,4 +51,19 @@ const cartViewFinalController = async (req, res, next) => {
   }
 };
 
-export default cartViewFinalController;
+export default orderViewFinalController;
+
+const editUserPasswordController = async (req, res, next) => {
+  try {
+    const { email, recoverPassCode, newPassword } = req.body;
+
+    await updateUserPasswordService(email, recoverPassCode, newPassword);
+
+    res.send({
+      status: "ok",
+      message: "Contraseña actualizada",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
