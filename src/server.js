@@ -3,6 +3,7 @@ import morgan from "morgan";
 import fileupload from "express-fileupload";
 import cors from "cors";
 import path from "path";
+import fs from "fs/promises";
 
 const server = express();
 
@@ -27,7 +28,20 @@ server.use(fileupload());
 const staticDir = path.join(process.cwd(), "./src/uploads");
 server.use("/uploads", express.static(staticDir));
 
-// Hacer que cree la carpeta al arrancar el servidor.
+// Hacer que cree la carpeta 'uploads' al arrancar el servidor si no existe.
+
+const uploadsDir = path.join(staticDir, "uploads");
+
+async function ensureUploadsDir() {
+  try {
+    await fs.mkdir(uploadsDir, { recursive: true });
+    console.log('Carpeta "uploads" verificada/creada');
+  } catch (error) {
+    console.error("Error al crear la carpeta 'uploads':", error);
+  }
+}
+
+ensureUploadsDir();
 
 //server.post --> crea un nuevo recurso
 //server.put --> modifica un recurso ya creado
