@@ -8,9 +8,6 @@ import sendRecoverPassController from "../controllers/users/sendRecoverPassContr
 import loginUserController from "../controllers/users/loginUserController.js";
 import newProductController from "../controllers/newProductController.js";
 
-import authUser from '../middlewares/authUser';
-import adminUser from '../middlewares/adminUser';
-
 const userRouter = express.Router();
 
 userRouter.post("/users/password", editUserPasswordController);
