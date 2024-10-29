@@ -3,51 +3,60 @@ import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
 // Controlador para modificar la cantidad de productos en el carrito
 const cartModifyProductController = async (req, res, next) => {
-  try {
-    const { userId, productId } = req.params; // Obtener userId y productId desde los parámetros
-    const { quantity } = req.body; // Cantidad que se quiere agregar o quitar
-
-    /* Verificar que el usuario tenga permisos para modificar su propio carrito
-        if (userId != req.user.id) {
+    try {
+        // En req.param pedidoID, productID
+        // usuario lo del token
+        //PATCH "/orders/:orderID/productSize/:productSizeId"
+        const { orderId, productSizeId } = req.params; // Obtener userId y productId desde los parámetros
+        const { quantity } = req.body; // Cantidad que se quiere agregar o quitar
+  
+        // 0 comprobar que el pedido/carrito (orders) exista
+          // query al DB para comprobar que exista el pedido (SELECT user_id)
+          // En order guardo el resultado de la select 
+          let order;
+        
+        // 1 tengo que ver si req.user.id es igual a orders.user_id
+        if (order.userId !== req.user.id) {
             throw generateErrorsUtils('Usuario no autorizado para esta operación', 403);
-        } */
+        }
 
-    // Verificar que el productId y quantity sean válidos
-    // if (!productId || !quantity || quantity <= 0 ) {
-    //     throw generateErrorsUtils('Parámetros inválidos', 400);
-    // }
+        // 2 busco el producto en el pedido (product_orders)
+        // SELECT amount
+        // FROM product_order
+        // WHERE order_id = orderId AND product_size_id = productSizeId
+        let product;
+        if (!product) {
+          throw generateErrorsUtils('Producto no encontrado en el carrito', 404);
+      }  //falta crear y definir cartController 
 
-    // Obtener el carrito y verificar la cantidad actual y el stock
-    const cart = await cartController.getCartByUserId(userId);
-    const productInCart = cart.items.find(
-      (item) => item.product.toString() === productId
-    );
 
-    if (!productInCart) {
-      throw generateErrorsUtils("Producto no encontrado en el carrito", 404);
+
+        if (quantity > product.amount){
+          // 3 comprobar stock
+          // query a product_size para sacar el stock de product.id
+          if(stock < (quantity - product.amount) ){
+            //Error no tengo stock
+            throw generateErrorsUtils('Cantidad solicitada supera el stock disponible', 409);
+          }
+        }
+
+        // 4 actualizar la cantidad en el carrito
+        //UPDATE amount con quantity en product_order para orderId
+
+        // 5 Actualizar el stock
+        // update en product_size del stock
+
+        res.send({
+            status: 'ok',
+            message: 'Carrito actualizado correctamente',
+            data: {
+              quantity
+            },
+        });
+        
+    } catch (error) {
+        next(error);
     }
-
-    // Verificar stock del producto
-    const stockAvailable = req.product.stock;
-    if (quantity > stockAvailable) {
-      throw generateErrorsUtils(
-        "Cantidad solicitada supera el stock disponible",
-        409
-      );
-    }
-
-    // Actualizar la cantidad del producto en el carrito
-    productInCart.quantity = quantity;
-    await cartController.updateCart(cart);
-
-    res.send({
-      status: "ok",
-      message: "Carrito actualizado correctamente",
-      cart,
-    });
-  } catch (error) {
-    next(error);
-  }
 };
 
 export default cartModifyProductController;
