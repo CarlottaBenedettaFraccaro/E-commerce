@@ -4,6 +4,7 @@ import fileupload from "express-fileupload";
 import cors from "cors";
 import path from "path";
 import fs from "fs/promises";
+import userRouter from "./routes/userRouter.js";
 
 const server = express();
 
@@ -46,6 +47,8 @@ ensureUploadsDir();
 //server.post --> crea un nuevo recurso
 //server.put --> modifica un recurso ya creado
 //server.delete --> elimina un recurso
+
+server.use(userRouter);
 
 //middleware de manejo de errores
 server.use((error, req, res, next) => {

@@ -1,5 +1,5 @@
-import getPool from "../database/getPool";
-import generateErrorsUtils from "../utils/generateErrorsUtils";
+import getPool from "../database/getPool.js";
+import generateErrorsUtils from "../utils/generateErrorsUtils.js";
 
 const newProductController = async (req, res) => {
   const pool = await getPool();

@@ -1,5 +1,5 @@
 import generateErrorsUtils from "../utils/generateErrorsUtils.js";
-import selectUserByIdService from "sevices/users/selectUserByIdService.js";
+import selectUserByIdService from "../services/users/selectUserByIdService.js";
 import bcrypt from "bcrypt";
 
 const editUserPasswordController = async (req, res) => {

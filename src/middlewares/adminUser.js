@@ -1,4 +1,4 @@
-import getPool from "../../database/getPool.js";
+import getPool from "../database/getPool.js";
 import generateErrorsUtils from "../utils/generateErrorsUtils.js";
 
 const adminUser = async (req, res, next) => {

@@ -1,11 +1,12 @@
 import express from "express";
-
-import editUserPasswordController from "../controllers/EditUserPasswordController";
-import registerUserController from "../controllers/users/registerUserController";
-import validaterUserController from "../controllers/users/validaterUserController";
-import sendRecoverPassController from "../controllers/users/sendRecoverPassController";
-import loginUserController from "../controllers/users/loginUserController";
-import newProductController from '../controllers/newProductController';
+import authUser from "../middlewares/authUser.js";
+import adminUser from "../middlewares/adminUser.js";
+import editUserPasswordController from "../controllers/editUserPasswordController.js";
+import registerUserController from "../controllers/users/registerUserController.js";
+import validaterUserController from "../controllers/users/validaterUserController.js";
+import sendRecoverPassController from "../controllers/users/sendRecoverPassController.js";
+import loginUserController from "../controllers/users/loginUserController.js";
+import newProductController from "../controllers/newProductController.js";
 
 const userRouter = express.Router();
 
@@ -15,6 +16,6 @@ userRouter.post("/users/validater", validaterUserController);
 userRouter.post("/users/recover_password", sendRecoverPassController);
 userRouter.post("/users/login", loginUserController);
 //userRouter.post("/users/password", editUserPasswordController);
-userRouter.post('/newproduct', authUser, adminUser, newProductController) 
+userRouter.post("/newproduct", authUser, adminUser, newProductController);
 
 export default userRouter;
