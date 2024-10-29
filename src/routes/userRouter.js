@@ -5,6 +5,7 @@ import registerUserController from "../controllers/users/registerUserController"
 import validaterUserController from "../controllers/users/validaterUserController";
 import sendRecoverPassController from "../controllers/users/sendRecoverPassController";
 import loginUserController from "../controllers/users/loginUserController";
+import newProductController from '../controllers/newProductController';
 
 const userRouter = express.Router();
 
@@ -14,5 +15,6 @@ userRouter.post("/users/validater", validaterUserController);
 userRouter.post("/users/recover_password", sendRecoverPassController);
 userRouter.post("/users/login", loginUserController);
 //userRouter.post("/users/password", editUserPasswordController);
+userRouter.post('/newproduct', auth, adminAuth, newProductController) 
 
 export default userRouter;
