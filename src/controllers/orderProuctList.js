@@ -1,26 +1,24 @@
 import orderController from "../controllers/orderController.js";
+import selectUserByIdService from "../services/users/selectUserByIdService.js"; // Corregido "sevices" a "services"
 import generateErrorsUtils from "../utils/generateErrorsUtils.js";
+
+const user = await selectUserByIdService(userId);
+if (!user) {
+  throw generateErrorsUtils("Usuario no encontrado", 404);
+}
 
 const orderViewFinalController = async (req, res, next) => {
   try {
-    const { userId } = req.user;
-
-    // Verificar que el usuario tenga permisos para ver su propio carrito
-    /*if (userId != req.user.id) {
-      throw generateErrorsUtils(
-        "Usuario no autorizado para esta operación",
-        403
-      );
-    }*/
+    const { userId } = req.user; // Asegúrate de que req.user sea donde obtienes el userId
 
     // Obtener el carrito del usuario
     const cart = await orderController.getOrderByUserId(userId);
 
     if (!cart || cart.items.length === 0) {
-      return res.status(404).json({
-        message: "Carrito vacío o no encontrado",
-        cart: [],
-      });
+      throw generateErrorsUtils(
+        "Carrito vacío o no encontrado",
+        404 // Código de estado para recurso no encontrado
+      );
     }
 
     // Calcular subtotal y total del carrito
@@ -38,7 +36,8 @@ const orderViewFinalController = async (req, res, next) => {
       };
     });
 
-    res.send({
+    // Enviar respuesta con los detalles del carrito
+    res.status(200).json({
       status: "ok",
       message: "Procede al pago",
       cart: {
@@ -47,7 +46,7 @@ const orderViewFinalController = async (req, res, next) => {
       },
     });
   } catch (error) {
-    next(error);
+    next(error); // Pasar el error al middleware de manejo de errores
   }
 };
 
