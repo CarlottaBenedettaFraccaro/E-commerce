@@ -22,14 +22,14 @@ const insertUserServices = async (email, password, registrationCode) => {
          * borra el codigo de registro y el active lo pone en 1
          */
         
-        const emailSubject= 'Activa tu cuenta en ecommerce de aceites';
+        const emailSubject= 'Activa tu cuenta en Ecoil';
 
         const emailBody = `
                 <html>
                     <body>
                         <h2>!!Bienvenid@ ${email}</h2>
                         <p>
-                            Gracias por registrarte en ecommerce Aceite. Para activiar tu cuenta
+                            Gracias por registrarte en Ecoil. Para activiar tu cuenta
                             debes hacer click en el siguiente enlace:
                         </p>
                         <p>
