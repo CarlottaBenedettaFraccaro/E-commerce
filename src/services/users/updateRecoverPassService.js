@@ -14,14 +14,14 @@ const updateRecoverPassService = async (email, recoverPassCode) => {
         [recoverPassCode, email]
     );
 
-    const emailSubject= 'Recuperación de contraseña de Diario de Viajes';
+    const emailSubject= 'Recuperación de contraseña de Ecoil';
 
     const emailBody = `
                 <html>
                     <body>
                         <h2>Recuperación de contraseña para: ${email}</h2>
                         <p>
-                            Se ha solicitado la recuperación de la contraseña de ecommerce Aceites.
+                            Se ha solicitado la recuperación de la contraseña de Ecoil.
                             Utiliza el siquiente código de recuperación para creaer una nueva contrasaeña:
                             Codigo de recuperación: ${ recoverPassCode }
                         </p>
