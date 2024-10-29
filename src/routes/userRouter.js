@@ -15,6 +15,6 @@ userRouter.post("/users/validater", validaterUserController);
 userRouter.post("/users/recover_password", sendRecoverPassController);
 userRouter.post("/users/login", loginUserController);
 //userRouter.post("/users/password", editUserPasswordController);
-userRouter.post('/newproduct', auth, adminAuth, newProductController) 
+userRouter.post('/newproduct', authUser, adminUser, newProductController) 
 
 export default userRouter;
