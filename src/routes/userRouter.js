@@ -1,12 +1,11 @@
 import express from "express";
-import authUser from "../middlewares/authUser.js";
-import adminUser from "../middlewares/adminUser.js";
-import editUserPasswordController from "../controllers/editUserPasswordController.js";
-import registerUserController from "../controllers/users/registerUserController.js";
-import validaterUserController from "../controllers/users/validaterUserController.js";
-import sendRecoverPassController from "../controllers/users/sendRecoverPassController.js";
-import loginUserController from "../controllers/users/loginUserController.js";
-import newProductController from "../controllers/newProductController.js";
+
+import editUserPasswordController from "../controllers/EditUserPasswordController";
+import registerUserController from "../controllers/users/registerUserController";
+import validaterUserController from "../controllers/users/validaterUserController";
+import sendRecoverPassController from "../controllers/users/sendRecoverPassController";
+import loginUserController from "../controllers/users/loginUserController";
+import newProductController from '../controllers/newProductController';
 
 const userRouter = express.Router();
 

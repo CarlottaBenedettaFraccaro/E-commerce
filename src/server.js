@@ -6,6 +6,7 @@ import path from "path";
 import fs from "fs/promises";
 import userRouter from "./routes/userRouter.js";
 
+
 const server = express();
 
 server.use((req, res, next) => {
@@ -43,6 +44,7 @@ async function ensureUploadsDir() {
 }
 
 ensureUploadsDir();
+
 
 //server.post --> crea un nuevo recurso
 //server.put --> modifica un recurso ya creado
