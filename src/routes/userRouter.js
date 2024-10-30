@@ -18,7 +18,7 @@ userRouter.post("/users/login", loginUserController);
 userRouter.put("/users/password", editUserPasswordController);
 userRouter.post('/users/password/recover', sendRecoverPassController);
 
-userRouter.get("/newproduct", authUser, adminUser, newProductController);
-router.get('/categories', listCategoriesController);
+userRouter.post("/newproduct", authUser, adminUser, newProductController);
+userRouter.get('/categories', listCategoriesController);
 
 export default userRouter;
