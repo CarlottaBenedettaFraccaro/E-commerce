@@ -7,17 +7,17 @@ import validaterUserController from "../controllers/users/validaterUserControlle
 import sendRecoverPassController from "../controllers/users/sendRecoverPassController.js";
 import loginUserController from "../controllers/users/loginUserController.js";
 import newProductController from "../controllers/newProductController.js";
-import listCategoriesController from '../controllers/listCategoriesController.js';
+import listCategoriesController from "../controllers/listCategoriesController.js";
 
 const userRouter = express.Router();
 
-userRouter.post("/users/password", editUserPasswordController);
+userRouter.put("/users/password", editUserPasswordController);
 userRouter.post("/users/register", registerUserController);
-userRouter.post("/users/validater", validaterUserController);
+userRouter.get("/users/validate/:registrationCode", validaterUserController);
 userRouter.post("/users/recover_password", sendRecoverPassController);
 userRouter.post("/users/login", loginUserController);
 //userRouter.post("/users/password", editUserPasswordController);
-userRouter.post("/newproduct", authUser, adminUser, newProductController);
-router.get('/categories', listCategoriesController);
+userRouter.get("/newproduct", authUser, adminUser, newProductController);
+userRouter.get("/categories", listCategoriesController);
 
 export default userRouter;
