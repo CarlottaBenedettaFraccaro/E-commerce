@@ -17,9 +17,8 @@ const insertUserServices = async (email, password, registrationCode) => {
   if (user.length)
     throw generateErrorsUtils("El email ya se encuentra registrado", 409);
 
-  /**
-   * Metodo para envío del email para confirmar el registro
-   * borra el codigo de registro y el active lo pone en 1
+  /*
+    Metodo para envío del email para confirmar el registro
    */
 
   const emailSubject = "Activa tu cuenta en Ecoil";

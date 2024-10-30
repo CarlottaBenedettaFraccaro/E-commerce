@@ -2,12 +2,6 @@ import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 import insertUserServices from "../../services/users/insertUserServices.js";
 import randomString from "randomstring";
 
-//todo lo que viene desde el front viene por la request (req)
-//body: viene desde un forulario
-//params: cuando viene por la query string /user/1
-//query: cuando vienen parametros (mas de uno) ejemplo: nombre, edad
-//      /users?nombre=juan&&apellido=fernendez
-
 const registerUserController = async (req, res, next) => {
   try {
     const { email, password } = req.body;

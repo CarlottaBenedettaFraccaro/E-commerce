@@ -23,14 +23,8 @@ const loginUserController = async (req, res, next) => {
             throw generateErrorsUtils('Usuario o contraseña incorrecta', 401);
         }
 
-        /*
-            comprobar que el active esté en 1
-        */
         if(!user.active) throw generateErrorsUtils('Usuario pendiente de activación',403);
         
-        /**
-         * generar el token
-         */
         const tokenInfo = {
             id: user.id,
             role: user.role
