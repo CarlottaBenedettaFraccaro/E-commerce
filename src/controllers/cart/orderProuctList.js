@@ -1,6 +1,6 @@
 import orderController from "../controllers/orderController.js";
-import selectUserByIdService from "../services/users/selectUserByIdService.js"; // Corregido "sevices" a "services"
-import generateErrorsUtils from "../utils/generateErrorsUtils.js";
+import selectUserByIdService from "../../services/users/selectUserByIdService.js"; // Corregido "sevices" a "services"
+import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
 const user = await selectUserByIdService(userId);
 if (!user) {

@@ -1,7 +1,6 @@
-import mysql from "mysql2";
 import getPool from "./getPool.js";
 
-(async () => {
+const initDB = async () => {
   const pool = getPool();
 
   try {
@@ -134,4 +133,6 @@ import getPool from "./getPool.js";
   } finally {
     pool.end();
   }
-})();
+};
+
+initDB();
