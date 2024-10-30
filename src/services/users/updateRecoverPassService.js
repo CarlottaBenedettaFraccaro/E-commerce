@@ -1,5 +1,5 @@
 import getPool from "../../database/getPool.js";
-// import sendMailBrevoUtils from "../../utils/sendMailBrevoUtils.js";
+import sendMailUtils from "../../utils/sendMailUtils.js";
 
 const updateRecoverPassService = async (email, recoverPassCode) => {
   const pool = await getPool();
@@ -33,7 +33,7 @@ const updateRecoverPassService = async (email, recoverPassCode) => {
                 </html>
         `;
 
-  await sendMailBrevoUtils(email, emailSubject, emailBody);
+  await sendMailUtils(email, emailSubject, emailBody);
 };
 
 export default updateRecoverPassService;

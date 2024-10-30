@@ -15,6 +15,7 @@ server.use((req, res, next) => {
 });
 
 //middleware a nivel de aplicación
+
 server.use(morgan("dev"));
 
 server.use(express.json()); //codifica todo lo que viene desde un formulario y viene por body

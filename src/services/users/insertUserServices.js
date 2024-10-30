@@ -1,8 +1,7 @@
 import bcrypt from "bcrypt";
 import getPool from "../../database/getPool.js";
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
-//import sendMailUtils from '../../utils/sendMailUtils.js';
-// import sendMailBrevoUtils from '../../utils/sendMailBrevoUtils.js';
+import sendMailUtils from "../../utils/sendMailUtils.js";
 
 const insertUserServices = async (email, password, registrationCode) => {
   const pool = await getPool();
@@ -41,8 +40,7 @@ const insertUserServices = async (email, password, registrationCode) => {
                 </html>
         `;
 
-  //await sendMailUtils(email, emailSubject, emailBody);
-  await sendMailBrevoUtils(email, emailSubject, emailBody);
+  await sendMailUtils(email, emailSubject, emailBody);
 
   const passwordHashed = await bcrypt.hash(password, 10);
 

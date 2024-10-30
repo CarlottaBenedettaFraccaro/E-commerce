@@ -21,4 +21,5 @@ userRouter.post('/users/password/recover', sendRecoverPassController);
 userRouter.post("/newproduct", authUser, adminUser, newProductController);
 userRouter.get('/categories', listCategoriesController);
 
+
 export default userRouter;

@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.3",
+    "nodemailer": "^6.9.16",
     "npm-path": "^2.0.4",
     "randomstring": "^1.3.0"
   },

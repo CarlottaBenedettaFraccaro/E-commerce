@@ -15,7 +15,7 @@ const registerUserController = async (req, res, next) => {
     if (!email || !password)
       throw generateErrorsUtils("Se esperaba email o contraseña", 400);
 
-    const registrationCode = randomString.generate(15);
+    const registrationCode = randomString.generate(10);
 
     await insertUserServices(email, password, registrationCode);
 
