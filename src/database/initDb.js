@@ -1,8 +1,8 @@
-const mysql = require("mysql2/promise");
-const { GetPool } = require("./GetPool");
+import mysql from "mysql2";
+import getPool from "./getPool.js";
 
 (async () => {
-  const pool = GetPool();
+  const pool = getPool();
 
   try {
     const connection = await pool.getConnection();
