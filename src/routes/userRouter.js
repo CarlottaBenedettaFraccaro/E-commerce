@@ -19,6 +19,6 @@ userRouter.put("/users/password", editUserPasswordController);
 userRouter.post("/users/password/recover", sendRecoverPassController);
 
 userRouter.post("/cart/newproduct", authUser, adminUser, newProductController);
-userRouter.get("/categories", listCategoriesController);
+userRouter.get("/cart/categories", listCategoriesController);
 
 export default userRouter;
