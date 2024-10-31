@@ -27,7 +27,7 @@ CREATE TABLE users (
     direction_id INT,
     email VARCHAR(50),
     password VARCHAR(300) NOT NULL CHECK (CHAR_LENGTH(password) BETWEEN 8 AND 300),
-    role ENUM('admin', 'client'),
+    role ENUM('admin', 'client') DEFAULT 'client',
     active BOOLEAN DEFAULT FALSE,
     registrationcode VARCHAR(50),
     recoverpasscode VARCHAR(50),
