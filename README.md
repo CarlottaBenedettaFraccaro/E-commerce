@@ -49,7 +49,7 @@ Carrito de Compra:
 - Eliminar producto del carrito
 - Modificar cantidad de producto en el carrito
 - Lista de productos en el carrito
-- 
+  
 Middlewares:
 - 404 Not Found
 - Gestión de Errores
