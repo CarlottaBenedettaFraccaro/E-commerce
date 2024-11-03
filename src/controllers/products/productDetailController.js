@@ -21,7 +21,7 @@ const productDetailController = async (req, res, next) => {
       status: "ok",
       message: "Detalles del producto obtenidos correctamente",
       product: {
-        id: product._id,
+        id: product.id,
         name: product.name,
         description: product.description,
         images: [],
