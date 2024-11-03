@@ -1,12 +1,12 @@
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
-import cartListService from "../../services/cart/cartListService.js";
+import orderProductListCartService from "../../services/cart/orderProductListCartService.js";
 
-const cartListController = async (req, res, next) => {
+const orderViewFinalController = async (req, res, next) => {
   try {
     const { userId } = req.user; // Asegúrate de que req.user sea donde obtienes el userId
 
     // Obtener el carrito del usuario
-    const cart = await cartListService(userId);
+    const cart = await orderProductListCartService(userId);
 
     // Enviar respuesta con los detalles del carrito
     res.status(200).json({
@@ -22,4 +22,4 @@ const cartListController = async (req, res, next) => {
   }
 };
 
-export default cartListController;
+export default orderViewFinalController;
