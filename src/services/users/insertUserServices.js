@@ -24,20 +24,16 @@ const insertUserServices = async (email, password, registrationCode) => {
   const emailSubject = "Activa tu cuenta en Ecoil";
 
   const emailBody = `
-                <html>
-                    <body>
-                        <h2>!!Bienvenid@ ${email}</h2>
-                        <p>
-                            Gracias por registrarte en Ecoil. Para activiar tu cuenta
-                            debes hacer click en el siguiente enlace:
-                        </p>
-                        <p>
-                            <a href="http://localhost:3001/users/validate/${registrationCode}">Activar Cuenta</a>
+                      ¡¡Bienvenid@ ${email}
+                      
+                      Gracias por registrarte en Ecoil.
+
+                      Para activiar tu cuenta haz click en el siguiente enlace:
+                          href="http://localhost:3001/users/validate/${registrationCode}
+
+                          "Activar Cuenta"
                         
-                            Hecho con ❤ por el equipo de Ecoil.
-                        </p>
-                    </body>
-                </html>
+                       Equipo Ecoil ❤      
         `;
 
   await sendMailUtils(email, emailSubject, emailBody);
