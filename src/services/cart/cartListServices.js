@@ -2,7 +2,7 @@ import orderController from "../controllers/orderController.js";
 import selectUserByIdService from "../users/selectUserByIdService.js"; // Corregido "sevices" a "services"
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
-const orderProductListCartService = async (req, res, next) => {
+const cartListService = async (req, res, next) => {
   const user = await selectUserByIdService(userId);
   if (!user) {
     throw generateErrorsUtils("Usuario no encontrado", 404);
@@ -45,4 +45,4 @@ const orderProductListCartService = async (req, res, next) => {
   });
 };
 
-export default orderProductListCartService;
+export default cartListService;
