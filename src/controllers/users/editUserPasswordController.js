@@ -5,7 +5,7 @@ const editUserPasswordController = async (req, res, next) => {
   try {
     const { userId, oldPassword, newPassword } = req.body;
 
-    await updatePasswordService(userId, oldPassword, newPassword);
+    await editUserPasswordService(userId, oldPassword, newPassword);
 
     res.send({
       status: "ok",
