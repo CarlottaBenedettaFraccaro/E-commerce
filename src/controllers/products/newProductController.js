@@ -5,7 +5,7 @@ const newProductController = async (req, res, next) => {
   try {
     const { product_name, product_description, size, prize } = req.body;
 
-    await createProductService({
+    await newProductService({
       product_name,
       product_description,
       size,
