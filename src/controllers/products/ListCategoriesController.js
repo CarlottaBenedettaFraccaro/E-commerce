@@ -1,18 +1,14 @@
-import getPool from "../../database/getPool.js";
+import listCategoriesService from "../../services/categories/listCategoriesService.js";
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
-const listCategoriesController = async (req, res) => {
-  const pool = await getPool();
-  const query = "SELECT * FROM category";
-
-  pool.query(query, (err, results) => {
-    if (err) {
-      console.error("Error al obtener las categorías:", err);
-      throw generateErrorsUtils("error al obtener las categorias", 500);
-    }
-
-    res.status(200).json(results);
-  });
+const listCategoriesController = async (req, res, next) => {
+  try {
+    const categories = await listCategoriesService();
+    res.status(200).json(categories);
+  } catch (err) {
+    console.error("Error en el controlador:", err);
+    throw generateErrorsUtils("error en el controlador", 400);
+  }
 };
 
 export default listCategoriesController;
