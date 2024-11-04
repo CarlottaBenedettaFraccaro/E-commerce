@@ -1,43 +1,18 @@
+import updatePasswordService from "../../services/users/updatePasswordService.js";
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
-import selectUserByIdService from "../../services/users/selectUserByIdService.js";
-import bcrypt from "bcrypt";
 
-const editUserPasswordController = async (req, res) => {
+const editUserPasswordController = async (req, res, next) => {
   try {
     const { userId, oldPassword, newPassword } = req.body;
 
-    // Buscar al usuario
-    const user = await selectUserByIdService(userId);
-    if (!user) {
-      throw generateErrorsUtils("Usuario no encontrado", 404);
-    }
-
-    // Verificar la contraseña anterior
-    const isMatch = await bcrypt.compare(oldPassword, user.password);
-
-    if (!isMatch) {
-      throw generateErrorsUtils("Contraseña incorrecta", 400);
-    }
-
-    // Encriptar la nueva contraseña
-    const hashPassword = await bcrypt.hash(newPassword, 10);
-
-    // Guardar los cambios
-    await pool.query(
-      `
-          UPDATE users
-          SET password=?
-          WHERE id=?
-      `,
-      [hashPassword]
-    );
+    await updatePasswordService(userId, oldPassword, newPassword);
 
     res.send({
       status: "ok",
       message: "contraseña actualizada",
     });
   } catch (error) {
-    next(error);
+    throw generateErrorsUtils("error al actualizar la contraseña", 400);
   }
 };
 
