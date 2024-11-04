@@ -5,6 +5,8 @@ import cors from "cors";
 import path from "path";
 import fs from "fs/promises";
 import userRouter from "./routes/userRouter.js";
+import cartRouter from "./routes/cartRouter.js";
+import productRouter from "./routes/productRouter.js";
 
 const server = express();
 
@@ -49,7 +51,9 @@ ensureUploadsDir();
 //server.put --> modifica un recurso ya creado
 //server.delete --> elimina un recurso
 
-server.use(userRouter);
+server.use("/users", userRouter);
+server.use("/cart", cartRouter);
+server.use("/products", productRouter);
 
 //middleware de manejo de errores
 server.use((error, req, res, next) => {
