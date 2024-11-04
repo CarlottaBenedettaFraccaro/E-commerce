@@ -1,4 +1,4 @@
-import createProductService from "../../services/products/createProductService.js";
+import newProductService from "../../services/products/newProductService.js";
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
 const newProductController = async (req, res, next) => {
