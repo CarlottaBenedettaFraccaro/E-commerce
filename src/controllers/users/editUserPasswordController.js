@@ -1,4 +1,4 @@
-import updatePasswordService from "../../services/users/updatePasswordService.js";
+import editUserPasswordService from "../../services/users/editUserPasswordService.js";
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
 const editUserPasswordController = async (req, res, next) => {
