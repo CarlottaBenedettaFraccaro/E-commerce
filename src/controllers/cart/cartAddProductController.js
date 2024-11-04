@@ -1,4 +1,4 @@
-import addProductToCart from "../services/cartService.js";
+import cartAddProductService from "../services/cart/cartAddProductService.js";
 import generateErrorsUtils from "../utils/generateErrorsUtils.js";
 
 const cartAddProductController = async (req, res, next) => {
