@@ -5,7 +5,7 @@ const cartAddProductController = async (req, res, next) => {
   try {
     const { userId, productSizeId, quantity } = req.body;
 
-    const response = await addProductToCart({
+    const response = await cartAddProductService({
       userId,
       productSizeId,
       quantity,
