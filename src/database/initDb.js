@@ -33,7 +33,7 @@ const initDb = async () => {
         direction_id INT,
         email VARCHAR(50),
         password VARCHAR(300) NOT NULL CHECK (CHAR_LENGTH(password) BETWEEN 8 AND 300),
-        role ENUM('admin', 'client'),
+        role ENUM('admin', 'client') DEFAULT 'client',
         active BOOLEAN DEFAULT FALSE,
         registrationcode VARCHAR(50),
         recoverpasscode VARCHAR(50),
@@ -52,13 +52,14 @@ const initDb = async () => {
         product_id INT,
         size VARCHAR(50),
         stock INTEGER,
-        cost NUMERIC(10, 2),
+        price NUMERIC(10, 2),
         FOREIGN KEY (product_id) REFERENCES products(id))`);
-    await pool.query(`CREATE TABLE photos (
+    await pool.query(`CREATE TABLE product_image (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        photo_name VARCHAR(50),
-        producto_id INT,
-        FOREIGN KEY (producto_id) REFERENCES products(id))`);
+        product_image_name VARCHAR(50),
+        product_image MEDIUMBLOB,
+        product_id INT,
+        FOREIGN KEY (product_id) REFERENCES products(id))`);
     await pool.query(`CREATE TABLE category (
         id INT PRIMARY KEY AUTO_INCREMENT,
         categoryProd VARCHAR(50))`);
