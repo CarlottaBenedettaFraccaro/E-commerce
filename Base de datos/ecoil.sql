@@ -25,6 +25,7 @@ CREATE TABLE users (
     telephone CHAR(9) NOT NULL,
     direction_id INT,
     email VARCHAR(50),
+
     password VARCHAR(300) NOT NULL CHECK (CHAR_LENGTH(password) BETWEEN 8 AND 300),
     role ENUM('admin', 'client') DEFAULT 'client',
     active BOOLEAN DEFAULT FALSE,
