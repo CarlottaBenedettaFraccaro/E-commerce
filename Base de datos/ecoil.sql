@@ -17,7 +17,6 @@ CREATE TABLE direction (
     notes VARCHAR(225)
 );
 
-
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50),
@@ -26,8 +25,8 @@ CREATE TABLE users (
     telephone CHAR(9) NOT NULL,
     direction_id INT,
     email VARCHAR(50),
-    password VARCHAR(20) NOT NULL CHECK (CHAR_LENGTH(password) BETWEEN 8 AND 20),
-    role ENUM('admin', 'client'),
+    password VARCHAR(300),
+    role ENUM('admin', 'client') DEFAULT 'client',
     active BOOLEAN DEFAULT FALSE,
     registrationcode VARCHAR(50),
     recoverpasscode VARCHAR(50),
@@ -54,11 +53,12 @@ CREATE TABLE product_size (
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-CREATE TABLE photos (
+CREATE TABLE product_image (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    photo_name VARCHAR(50),
-    producto_id INT,
-    FOREIGN KEY (producto_id) REFERENCES products(id)
+    product_image_name VARCHAR(50),
+    product_image MEDIUMBLOB,
+    product_id INT,
+    FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
 CREATE TABLE category (
