@@ -9,3 +9,5 @@ roRama01
   - npm i cors, para proveer un middleware de Express en React.
 
   \*al contar con la estructura npm i, hhe hecho la instalación de todos los componentes en una única línea\*
+
+- he incluido un .env, para las variables de entorno, que he marcado dentro del .gitignore, y un .env_example donde podremos compartir no lo esencialmente sensible
