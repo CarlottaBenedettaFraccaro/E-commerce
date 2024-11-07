@@ -1,4 +1,4 @@
-import listCategoriesService from "../../services/products/listCategoriesService.js";
+import listCategoriesService from "../../services/products/ListCategoriesService.js";
 import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
 const listCategoriesController = async (req, res, next) => {

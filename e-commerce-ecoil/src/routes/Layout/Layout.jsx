@@ -3,7 +3,7 @@ import { useUser } from "../../UserContext";
 
 // NOTAS ABAJO
 
-function Layout() {
+function Layout({ user }) {
   const [user] = useUser();
   return (
     <>

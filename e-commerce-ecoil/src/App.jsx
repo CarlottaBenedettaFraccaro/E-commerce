@@ -1,18 +1,24 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./routes/Home/Home";
+import Login from "./routes/Login/Login";
 import "./App.css";
+import Layout from "./routes/Layout/Layout";
+import { useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <>
-      <div>
-        <a href="" target="">
-          🚶‍♂️💡
-        </a>
-        <a href="" target=""></a>
-      </div>
-      <h1>Ecoil venta de aceite de oilva andaluz</h1>
-      <div className="card">
-        <p></p>
-      </div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="login"
+            element={<Login user={user} setUser={setUser} />}
+          />
+        </Route>
+      </Routes>
     </>
   );
 }
