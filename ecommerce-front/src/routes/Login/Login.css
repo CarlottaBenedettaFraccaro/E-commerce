@@ -1,0 +1,68 @@
+/* Fondo de la página */
+body {
+  background-color: #ecedea;
+  font-family: "Livvic", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor de la página */
+.page-container {
+  text-align: center;
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Estilo iniciar sesión */
+.enter-title {
+  font-family: "Cinzel Decorative", sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  color: #3f2c24; /* Marrón oscuro */
+  margin-bottom: 20px;
+}
+
+/* Estilo para Acceder! */
+.enter-subtitle {
+  font-family: "Livvic", sans-serif;
+  color: #3f2c24;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* Estilo para los campos de formulario */
+.login-form label {
+  display: block;
+  font-size: 16px;
+  color: #3f2c24;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  font-family: "Livvic", sans-serif;
+}
+
+/* Espacios*/
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
