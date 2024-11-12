@@ -36,7 +36,7 @@ server.use("/uploads", express.static(staticDir));
 
 const uploadsDir = path.join(staticDir, "uploads");
 
-async function ensureUploadsDir() {
+async function createUploadsDir() {
   try {
     await fs.mkdir(uploadsDir, { recursive: true });
     console.log('Carpeta "uploads" verificada/creada');
@@ -45,7 +45,7 @@ async function ensureUploadsDir() {
   }
 }
 
-ensureUploadsDir();
+createUploadsDir();
 
 //server.post --> crea un nuevo recurso
 //server.put --> modifica un recurso ya creado

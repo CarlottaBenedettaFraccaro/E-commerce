@@ -3,13 +3,13 @@ import generateErrorsUtils from "../../utils/generateErrorsUtils.js";
 
 const newProductController = async (req, res, next) => {
   try {
-    const { product_name, product_description, size, prize } = req.body;
+    const { product_name, product_description, size, price } = req.body;
 
     await newProductService({
       product_name,
       product_description,
       size,
-      prize,
+      price,
     });
 
     res.status(201).json({

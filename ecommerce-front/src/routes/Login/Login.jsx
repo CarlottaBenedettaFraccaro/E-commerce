@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
     setError(null);
     const res = await fetch(
-      "http://localhost:5173/login" /*aquí va la url que cremos para el fetch (video anxo día 9sept. 1h 11min.)*/,
+      "http://localhost:5173/login" /*aquí va la url que creemos para el fetch (video anxo día 9sept. 1h 11min.)*/,
       {
         method: "POST",
         headers: { "Content-Type": "aplication/json" },

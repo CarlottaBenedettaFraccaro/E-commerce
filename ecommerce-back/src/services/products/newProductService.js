@@ -19,10 +19,10 @@ const newProductService = async ({
     await pool.query(productsQuery, [product_name, product_description]);
 
     const productSizeQuery = `
-      INSERT INTO product_size (size, prize)
+      INSERT INTO product_size (size, price)
       VALUES (?, ?)
     `;
-    await pool.query(productSizeQuery, [size, prize]);
+    await pool.query(productSizeQuery, [size, price]);
 
     await pool.commit();
   } catch (err) {
